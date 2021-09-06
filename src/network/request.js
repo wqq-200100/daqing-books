@@ -3,7 +3,7 @@ import axios from "axios";
 export function request(config) {
     const instance = axios.create({
         baseURL: 'https://api.shop.eduwork.cn',
-        timeout: 7000
+        timeout: 10000
     })
 
     //请求拦截---------------
@@ -17,7 +17,7 @@ export function request(config) {
 
     //响应拦截---------------
     instance.interceptors.response.use(res => {
-        console.log(res);
+        // console.log(res);
         return res.data ? res.data : res;
     }, error => {
         // 如果有需要授权才可以访问的接口，统一去login授权

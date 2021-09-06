@@ -1,22 +1,29 @@
 <template>
   <div class="nav-bar">
-    <div class="left" @click="goback"><slot name="left">
-      <img src="@/assets/images/Left.png" alt="">
-    </slot></div>
-    <div class="content"><slot></slot></div>
-    <div class="right"><slot name="right"></slot></div>
+    <div class="left" @click="goback">
+      <slot name="left">
+        <img src="@/assets/images/Left.png" alt="">
+      </slot>
+    </div>
+    <div class="content">
+      <slot></slot>
+    </div>
+    <div class="right">
+      <slot name="right"></slot>
+    </div>
   </div>
 </template>
 
 <script>
 import {useRouter} from 'vue-router'
+
 export default {
   name: "NavBar",
 
-  setup(){
+  setup() {
     const router = useRouter()
 
-    const goback =()=>{
+    const goback = () => {
       router.go(-1);
     }
     return {
@@ -39,16 +46,19 @@ export default {
   height: 45px;
   line-height: 45px;
   text-align: center;
-  box-shadow: 0 2px 0 rgba(100,100,100,.2);
+  box-shadow: 0 2px 0 rgba(100, 100, 100, .2);
 }
-  .left,.right {
-    width: 60px;
-  }
-  .left img{
-    width: 45px;
-    padding: 12px;
-  }
-  .content{
-    flex: 1;
-  }
+
+.left, .right {
+  width: 60px;
+}
+
+.left img {
+  width: 45px;
+  padding: 12px;
+}
+
+.content {
+  flex: 1;
+}
 </style>
